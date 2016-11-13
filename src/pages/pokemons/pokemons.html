@@ -11,10 +11,10 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let pokemon of pokemons">
-      <ion-avatar item-left>
+    <button ion-item *ngFor="let pokemon of pokemons" (click)="goToDetails(pokemon.name)">
+      <ion-thumbnail item-left>
         <img [src]="pokemon.image">
-      </ion-avatar>
+      </ion-thumbnail>
       <h2>{{ pokemon.name }}</h2>
       <ion-icon name="arrow-forward" item-right></ion-icon>
     </button>

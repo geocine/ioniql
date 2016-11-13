@@ -4,24 +4,18 @@ import { MyApp } from './app.component';
 
 import { ApolloModule } from 'angular2-apollo';
 
-import { UsersPage } from '../pages/users/users';
-import { ReposPage } from '../pages/repos/repos';
-import { OrganizationsPage } from '../pages/organizations/organizations';
-import { UserDetailsPage } from '../pages/user-details/user-details';
+import { PokemonDetailsPage } from '../pages/pokemon-details/pokemon-details';
 import { PokemonsPage } from '../pages/pokemons/pokemons';
 
-import { GithubUsers } from '../providers/github-users';
-import { Pokemons } from '../providers/pokemons';
+import { GithubUsersService } from '../providers/github-users';
+import { PokemonService } from '../providers/pokemons';
 
 import { client } from './client';
 
 @NgModule({
   declarations: [
     MyApp,
-    UsersPage,
-    ReposPage,
-    OrganizationsPage,
-    UserDetailsPage,
+    PokemonDetailsPage,
     PokemonsPage
   ],
   imports: [
@@ -31,12 +25,12 @@ import { client } from './client';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    UsersPage,
-    ReposPage,
-    OrganizationsPage,
-    UserDetailsPage,
+    PokemonDetailsPage,
     PokemonsPage
   ],
-  providers: [GithubUsers, Pokemons]
+  providers: [
+    GithubUsersService, 
+    PokemonService
+  ]
 })
 export class AppModule { }

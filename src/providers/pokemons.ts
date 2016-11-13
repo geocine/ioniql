@@ -18,8 +18,17 @@ const PokemonList = gql`
   }
 `;
 
+const PokemonDetails = gql`
+  query getDetails($name: String){
+    pokemon(name: $name){
+      name
+      image
+    }
+  }
+`;
+
 @Injectable()
-export class Pokemons {
+export class PokemonService {
 
   constructor(public apollo: Angular2Apollo) {
     console.log('Hello Pokemons Provider');
@@ -28,6 +37,16 @@ export class Pokemons {
   load(): Observable<Pokemon[]> {
     return this.apollo.watchQuery({ query: PokemonList })
       .map(res => <Pokemon[]>(res.data.pokemons));
+  }
+
+  loadDetails(name: string): Observable<Pokemon> {
+    return this.apollo.watchQuery({ 
+        query: PokemonDetails , 
+        variables : {
+          name: name
+        }
+      })
+      .map(res => <Pokemon>(res.data.pokemon));
   }
 
 }

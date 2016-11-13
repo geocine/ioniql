@@ -12,7 +12,7 @@ import { User } from '../models/user';
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class GithubUsers {
+export class GithubUsersService {
   
   githubApiUrl = 'https://api.github.com';
 

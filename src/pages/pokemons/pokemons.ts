@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { Pokemon } from '../../models/pokemon';
-import { Pokemons } from '../../providers/pokemons';
+import { PokemonService } from '../../providers/pokemons';
+import { PokemonDetailsPage } from '../pokemon-details/pokemon-details';
 
 /*
   Generated class for the Pokemons page.
@@ -17,10 +18,14 @@ import { Pokemons } from '../../providers/pokemons';
 export class PokemonsPage {
   pokemons: Pokemon[]
 
-  constructor(public navCtrl: NavController, private pokemonService: Pokemons) {
+  constructor(public navCtrl: NavController, private pokemonService: PokemonService) {
     pokemonService.load().subscribe(pokemons => {
       this.pokemons = pokemons;
     });
+  }
+
+  goToDetails(name: string) {
+    this.navCtrl.push(PokemonDetailsPage, { name });
   }
 
   ionViewDidLoad() {

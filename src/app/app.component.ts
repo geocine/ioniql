@@ -1,16 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
-
 import { Platform, MenuController, Nav } from 'ionic-angular';
-
 import { StatusBar } from 'ionic-native';
-
-import { UsersPage } from '../pages/users/users';
-import { ReposPage } from '../pages/repos/repos';
-import { OrganizationsPage } from '../pages/organizations/organizations';
 import { PokemonsPage } from '../pages/pokemons/pokemons';
-
 import { Splashscreen } from 'ionic-native';
-
 
 @Component({
   templateUrl: 'app.html'
@@ -30,9 +22,7 @@ export class MyApp {
 
     // set our app's pages
     this.pages = [
-      { title: 'Users', component: UsersPage },
-      { title: 'Repos', component: ReposPage },
-      { title: 'Organizations', component: OrganizationsPage }
+      { title: 'Pokemons', component: PokemonsPage }
     ];
   }
 
