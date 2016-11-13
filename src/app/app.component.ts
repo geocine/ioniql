@@ -7,6 +7,9 @@ import { StatusBar } from 'ionic-native';
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganizationsPage } from '../pages/organizations/organizations';
+import { PokemonsPage } from '../pages/pokemons/pokemons';
+
+import { Splashscreen } from 'ionic-native';
 
 
 @Component({
@@ -16,7 +19,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = UsersPage;
+  rootPage: any = PokemonsPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -38,6 +41,7 @@ export class MyApp {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
+      Splashscreen.hide();
     });
   }
 

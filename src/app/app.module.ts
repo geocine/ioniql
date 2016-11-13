@@ -2,12 +2,18 @@ import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
 
+import { ApolloModule } from 'angular2-apollo';
+
 import { UsersPage } from '../pages/users/users';
 import { ReposPage } from '../pages/repos/repos';
 import { OrganizationsPage } from '../pages/organizations/organizations';
 import { UserDetailsPage } from '../pages/user-details/user-details';
+import { PokemonsPage } from '../pages/pokemons/pokemons';
 
 import { GithubUsers } from '../providers/github-users';
+import { Pokemons } from '../providers/pokemons';
+
+import { client } from './client';
 
 @NgModule({
   declarations: [
@@ -15,10 +21,12 @@ import { GithubUsers } from '../providers/github-users';
     UsersPage,
     ReposPage,
     OrganizationsPage,
-    UserDetailsPage
+    UserDetailsPage,
+    PokemonsPage
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    ApolloModule.withClient(client)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -26,8 +34,9 @@ import { GithubUsers } from '../providers/github-users';
     UsersPage,
     ReposPage,
     OrganizationsPage,
-    UserDetailsPage
+    UserDetailsPage,
+    PokemonsPage
   ],
-  providers: [GithubUsers]
+  providers: [GithubUsers, Pokemons]
 })
-export class AppModule {}
+export class AppModule { }
