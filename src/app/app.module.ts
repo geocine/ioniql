@@ -4,8 +4,7 @@ import { MyApp } from './app.component';
 
 import { ApolloModule } from 'angular2-apollo';
 
-import { PokemonDetailsPage } from '../pages/pokemon-details/pokemon-details';
-import { PokemonsPage } from '../pages/pokemons/pokemons';
+import { PokemonDetailsPage, PokemonsPage } from '../pages/pages';
 
 import { GithubUsersService } from '../providers/github-users';
 import { PokemonService } from '../providers/pokemons';

@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
-import { PokemonsPage } from '../pages/pokemons/pokemons';
+import { PokemonsPage } from '../pages/pages';
 import { Splashscreen } from 'ionic-native';
 
 @Component({
