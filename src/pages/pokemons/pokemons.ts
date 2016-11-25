@@ -24,8 +24,8 @@ export class PokemonsPage {
     });
   }
 
-  goToDetails(name: string) {
-    this.navCtrl.push(PokemonDetailsPage, { name });
+  goToDetails(id: string) {
+    this.navCtrl.push(PokemonDetailsPage, { id });
   }
 
   ionViewDidLoad() {

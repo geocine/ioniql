@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
-import { PokemonsPage } from '../pages/pages';
+import { PokemonsPage, LoginPage } from '../pages/pages';
 import { Splashscreen } from 'ionic-native';
 
 @Component({
@@ -11,7 +11,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   // make HelloIonicPage the root (or first) page
-  rootPage: any = PokemonsPage;
+  rootPage: any = LoginPage;
   pages: Array<{title: string, component: any}>;
 
   constructor(

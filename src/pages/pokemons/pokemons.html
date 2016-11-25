@@ -11,7 +11,7 @@
 
 <ion-content padding>
   <ion-list>
-    <button ion-item *ngFor="let pokemon of pokemons" (click)="goToDetails(pokemon.name)">
+    <button ion-item *ngFor="let pokemon of pokemons" (click)="goToDetails(pokemon.id)">
       <ion-thumbnail item-left>
         <img [src]="pokemon.image">
       </ion-thumbnail>

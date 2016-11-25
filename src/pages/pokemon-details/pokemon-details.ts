@@ -15,12 +15,12 @@ import { PokemonService } from '../../providers/pokemons'
   templateUrl: 'pokemon-details.html'
 })
 export class PokemonDetailsPage {
-  name: string;
+  id: string;
   pokemon: Pokemon;
 
   constructor(public navCtrl: NavController, private navParams: NavParams, private pokemonService: PokemonService) {
-    this.name = navParams.get('name');
-    pokemonService.loadDetails(this.name).subscribe(pokemon => {
+    this.id = navParams.get('id');
+    pokemonService.loadDetails(this.id).subscribe(pokemon => {
       this.pokemon = pokemon;
       console.log(pokemon);
     })

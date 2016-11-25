@@ -10,7 +10,7 @@ import 'rxjs/add/operator/map';
 // We use the gql tag to parse our query string into a query document
 const PokemonList = gql`
   query GetPokemons{
-    pokemons(first: 20) {
+    allPokemons(first: 20) {
       id
       name
       image
@@ -19,8 +19,8 @@ const PokemonList = gql`
 `;
 
 const PokemonDetails = gql`
-  query getDetails($name: String){
-    pokemon(name: $name){
+  query getDetails($id: ID){
+    Pokemon(id: $id){
       name
       image
     }
@@ -36,17 +36,17 @@ export class PokemonService {
 
   load(): Observable<Pokemon[]> {
     return this.apollo.watchQuery({ query: PokemonList })
-      .map(res => <Pokemon[]>(res.data.pokemons));
+      .map(res => <Pokemon[]>(res.data.allPokemons));
   }
 
-  loadDetails(name: string): Observable<Pokemon> {
+  loadDetails(id: string): Observable<Pokemon> {
     return this.apollo.watchQuery({ 
         query: PokemonDetails , 
         variables : {
-          name: name
+          id: id
         }
       })
-      .map(res => <Pokemon>(res.data.pokemon));
+      .map(res => <Pokemon>(res.data.Pokemon));
   }
 
 }

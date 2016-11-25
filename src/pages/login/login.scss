@@ -1,0 +1,54 @@
+.ios, .md {
+ 
+  page-login {
+ 
+    .scroll-content {
+        background-image: url(../assets/images/footer_lodyas.png);
+        background-blend-mode: overlay;
+        background-color: #808080;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    img {
+        width: 40%;
+        border-radius: 50%;
+        height: auto;
+        margin: 0 auto;
+    }
+
+    ion-row {
+        align-items: center;
+        text-align: center;
+    }
+
+    ion-item {
+        border-radius: 30px !important;
+        padding-left: 10px !important;
+        margin-bottom: 10px;
+        background-color: #f6f6f6;
+        opacity: 0.7;
+        font-size: 0.9em;
+    }
+
+    ion-list {
+        margin: 0;
+    }
+
+    .login-button {
+        width: 100%;
+        border-radius: 30px;
+        font-size: 0.9em;
+        background-color: #27ae60
+    }
+
+    .item-input.input-has-focus .item-inner,
+    .item-input.input-has-focus:last-child {
+        border-bottom-color: transparent !important;
+        box-shadow: none;
+    }
+ 
+  }
+ 
+}

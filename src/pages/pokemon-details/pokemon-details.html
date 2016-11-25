@@ -7,12 +7,12 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>{{name}} details</ion-title>
+    <ion-title *ngIf="pokemon">{{pokemon?.name}} details</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <img [src]="pokemon?.image"/>
+  <img *ngIf="pokemon" [src]="pokemon?.image"/>
 </ion-content>

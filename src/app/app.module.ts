@@ -4,7 +4,10 @@ import { MyApp } from './app.component';
 
 import { ApolloModule } from 'angular2-apollo';
 
-import { PokemonDetailsPage, PokemonsPage } from '../pages/pages';
+import { 
+  PokemonDetailsPage, 
+  PokemonsPage, 
+  LoginPage } from '../pages/pages';
 
 import { GithubUsersService } from '../providers/github-users';
 import { PokemonService } from '../providers/pokemons';
@@ -15,7 +18,8 @@ import { client } from './client';
   declarations: [
     MyApp,
     PokemonDetailsPage,
-    PokemonsPage
+    PokemonsPage,
+    LoginPage
   ],
   imports: [
     IonicModule.forRoot(MyApp),
@@ -25,7 +29,8 @@ import { client } from './client';
   entryComponents: [
     MyApp,
     PokemonDetailsPage,
-    PokemonsPage
+    PokemonsPage,
+    LoginPage
   ],
   providers: [
     GithubUsersService, 
