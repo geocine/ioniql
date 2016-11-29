@@ -14,6 +14,13 @@
       "es5"
     ],
 
+
+or simply uninstall `@types/es6-shim`
+
+```
+@types/es6-shim
+```
+
 #### Splash Screen
 
 `config.xml` recommended settings
