@@ -9,8 +9,10 @@ import {
   PokemonsPage, 
   LoginPage } from '../pages/pages';
 
-import { GithubUsersService } from '../providers/github-users';
-import { PokemonService } from '../providers/pokemons';
+import { 
+  GithubUsersService,
+  PokemonService,
+  AuthService } from '../providers/providers';
 
 import { client } from './client';
 
@@ -34,7 +36,8 @@ import { client } from './client';
   ],
   providers: [
     GithubUsersService, 
-    PokemonService
+    PokemonService,
+    AuthService
   ]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, LoadingController } from 'ionic-angular';
 import { Pokemon } from '../../models/pokemon';
 
-import { PokemonService } from '../../providers/pokemons'
+import { PokemonService } from '../../providers/providers'
 
 /*
   Generated class for the PokemonDetails page.
@@ -18,16 +18,24 @@ export class PokemonDetailsPage {
   id: string;
   pokemon: Pokemon;
 
-  constructor(public navCtrl: NavController, private navParams: NavParams, private pokemonService: PokemonService) {
+  constructor(public navCtrl: NavController,
+    private navParams: NavParams,
+    private pokemonService: PokemonService,
+    private loadingController: LoadingController) {
     this.id = navParams.get('id');
-    pokemonService.loadDetails(this.id).subscribe(pokemon => {
-      this.pokemon = pokemon;
-      console.log(pokemon);
-    })
   }
 
   ionViewDidLoad() {
+    let loader = this.loadingController.create({
+      content: 'Loading details...'
+    })
+    loader.present().then(() => {
+      this.pokemonService.loadDetails(this.id).subscribe(pokemon => {
+        this.pokemon = pokemon;
+        loader.dismiss();
+      })
+    });
     console.log('Hello PokemonDetailsPage Page');
   }
-
+  
 }

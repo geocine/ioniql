@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { Pokemon } from '../../models/pokemon';
-import { PokemonService } from '../../providers/pokemons';
+import { PokemonService } from '../../providers/providers';
 import { PokemonDetailsPage } from '../pokemon-details/pokemon-details';
 
 /*

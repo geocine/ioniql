@@ -38,13 +38,9 @@
 
     .login-button {
         width: 100%;
-        border-radius: 30px;
-        font-size: 0.9em;
-        background-color: #27ae60
     }
 
-    .item-input.input-has-focus .item-inner,
-    .item-input.input-has-focus:last-child {
+    ion-item ion-input{
         border-bottom-color: transparent !important;
         box-shadow: none;
     }

@@ -1,12 +1,8 @@
 import { Component, trigger, state, style, transition, animate, keyframes } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { AuthService } from '../../providers/providers';
+import { PokemonsPage } from '../../pages/pages';
 
-/*
-  Generated class for the Login page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
@@ -65,11 +61,28 @@ export class LoginPage {
   cloudState: any = "in";
   loginState: any = "in";
   formState: any = "in";
+  email: string = "";
+  password: string = "";
 
-  constructor(public navCtrl: NavController) { }
+  constructor(public navCtrl: NavController, private authService: AuthService) { }
 
   ionViewDidLoad() {
     console.log('Hello LoginPage Page');
+  }
+
+  login() {
+    console.log(`login: ${this.email} ${this.password}`);
+    this.authService.login(this.email, this.password).then(({ data }) => {
+      //will store stuff on local storage
+      localStorage.setItem('auth_token', data.signinUser.token);
+      this.authService.isAuthenticatedBool = true;
+      // dispatch event and handle on login component?
+      console.log(localStorage);
+      this.navCtrl.setRoot(PokemonsPage);
+    }).catch((error) => {
+      this.authService.isAuthenticatedBool = false;
+      console.log(error.graphQLErrors[0].message);
+    });
   }
 
 }
