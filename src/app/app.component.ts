@@ -1,8 +1,10 @@
 import { Component, ViewChild } from '@angular/core';
 import { Platform, MenuController, Nav } from 'ionic-angular';
 import { StatusBar } from 'ionic-native';
-import { PokemonsPage, LoginPage } from '../pages/pages';
 import { Splashscreen } from 'ionic-native';
+
+import { PokemonsPage, LoginPage } from '../pages/pages';
+import { AuthService } from '../providers/providers';
 
 @Component({
   templateUrl: 'app.html'
@@ -16,13 +18,14 @@ export class MyApp {
 
   constructor(
     public platform: Platform,
-    public menu: MenuController
+    public menu: MenuController,
+    private authService: AuthService
   ) {
     this.initializeApp();
 
     // set our app's pages
     this.pages = [
-      { title: 'Pokemons', component: PokemonsPage }
+      { title: 'Pokemons', component: PokemonsPage}
     ];
   }
 
@@ -40,5 +43,11 @@ export class MyApp {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  logout(){
+    this.authService.logout();
+    this.menu.close();
+    this.nav.setRoot(LoginPage);
   }
 }

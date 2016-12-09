@@ -37,7 +37,6 @@ export class AuthService {
   logout() {
     if (localStorage.getItem('auth_token')) {
       localStorage.removeItem('auth_token');
-      // navigate somewhere
     }
   }
 
