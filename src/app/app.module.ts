@@ -1,43 +1,36 @@
 import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { RouteReuseStrategy } from '@angular/router';
 
-import { ApolloModule } from 'angular2-apollo';
+import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
+import { SplashScreen } from '@ionic-native/splash-screen/ngx';
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { 
-  PokemonDetailsPage, 
-  PokemonsPage, 
-  LoginPage } from '../pages/pages';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 
-import { 
-  GithubUsersService,
-  PokemonService,
-  AuthService } from '../providers/providers';
-
-import { client } from './client';
+import { PokemonServiceModule } from './services/services.module';
+import { GraphQLModule } from './graphql.module';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { AuthGuardService } from './services/auth-guard.service';
 
 @NgModule({
-  declarations: [
-    MyApp,
-    PokemonDetailsPage,
-    PokemonsPage,
-    LoginPage
-  ],
+  declarations: [AppComponent],
+  entryComponents: [],
   imports: [
-    IonicModule.forRoot(MyApp),
-    ApolloModule.withClient(client)
-  ],
-  bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    PokemonDetailsPage,
-    PokemonsPage,
-    LoginPage
+    BrowserModule,
+    IonicModule.forRoot(),
+    AppRoutingModule,
+    PokemonServiceModule,
+    GraphQLModule,
+    HttpClientModule
   ],
   providers: [
-    GithubUsersService, 
-    PokemonService,
-    AuthService
-  ]
+    AuthGuardService,
+    StatusBar,
+    SplashScreen,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
+  bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

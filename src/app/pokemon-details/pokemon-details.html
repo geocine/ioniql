@@ -1,0 +1,12 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-title *ngIf="pokemon">{{pokemon?.name}} details</ion-title>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <img *ngIf="pokemon" [src]="pokemon?.image" [alt]="pokemon?.name"/>
+</ion-content>

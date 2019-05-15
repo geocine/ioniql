@@ -1,45 +1,20 @@
-### Notes
+# Ionic + Angular
 
-`tsconfig.json` for `ionic serve`
+<p align="center">
+<img src="https://i.imgur.com/x1503Vc.gif" height="500px">
 
-    "lib": [
-      "dom",
-      "es6"
-    ],
-
-`tsconfig.json` for `ionic build` due to [angular2-apollo](http://dev.apollodata.com/angular2/initialization.html#typescript-es2015)
-
-    "lib": [
-      "dom",
-      "es5"
-    ],
-
-
-or simply uninstall `@types/es6-shim`
+</p>
 
 ```
-@types/es6-shim
+  user: oak@ioniql.dev
+  pass: pallet
 ```
 
-#### Splash Screen
+A simple demo application utilizing the following technologies:
+- **Ionic v4** - Ionic Framework is an open source UI toolkit for building performant, high-quality mobile and desktop apps using web technologies (HTML, CSS, and JavaScript).
+- **Apollo Client** - is the best way to use GraphQL to build client applications. The client is designed to help you quickly build a UI that fetches data with GraphQL, and can be used with any JavaScript front-end
+- **GraphQL** - is a query language for your API, and a server-side runtime for executing queries by using a type system you define for your data
+- **Angular v7** - is a platform for building mobile and desktop web applications.
+- **GraphCool** - Open-source and self-hosted backend-as-a-service to develop serverless GraphQL backends.
 
-`config.xml` recommended settings
 
-```xml
-<preference name="SplashScreenDelay" value="6000"/>
-<preference name="AutoHideSplashScreen" value="false"/>
-<preference name="SplashShowOnlyFirstTime" value="false"/>
-```
-
-`app.component.ts` hide splash screen on app initialize
-
-```js
-initializeApp() {
-  this.platform.ready().then(() => {
-    // Okay, so the platform is ready and our plugins are available.
-    // Here you can do any higher level native things you might need.
-    StatusBar.styleDefault();
-    Splashscreen.hide();
-  });
-}
-```

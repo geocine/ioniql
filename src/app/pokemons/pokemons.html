@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Pokemons
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card
+    *ngFor="let pokemon of pokemons"
+    [routerLink]="['/pokemons/', pokemon.id]"
+    routerDirection="forward"
+  >
+    <img [src]="pokemon.image" [alt]="pokemon.name" />
+    <ion-card-header>
+      <ion-card-title>
+        {{ pokemon.name }}
+      </ion-card-title>
+    </ion-card-header>
+  </ion-card>
+</ion-content>
