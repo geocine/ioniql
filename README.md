@@ -1,4 +1,4 @@
-# Ionic + Angular
+# Ionic + GraphQL
 
 <p align="center">
 <img src="demo.gif" height="500px">
