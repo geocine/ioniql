@@ -1,7 +1,7 @@
 # Ionic + Angular
 
 <p align="center">
-<img src="https://i.imgur.com/x1503Vc.gif" height="500px">
+<img src="demo.gif" height="500px">
 
 </p>
 
