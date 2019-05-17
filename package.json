@@ -61,7 +61,8 @@
     "protractor": "~5.4.0",
     "ts-node": "~8.1.0",
     "tslint": "~5.17.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "querystringify": ">=2.0.0"
   },
   "description": "An Ionic project"
 }
